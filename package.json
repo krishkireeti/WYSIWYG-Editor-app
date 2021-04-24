@@ -3,19 +3,26 @@
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve",
+    "start": "node server.js",
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
-    "e2e": "ng e2e"
+    "e2e": "ng e2e",
+    "postinstall": "ng build --aot -prod",
+    "deploy": "git push origin master && git push heroku master"
   },
   "private": true,
+  "engines": {
+    "node": "14.16.0",
+    "npm": "6.14.11"
+  },
   "dependencies": {
     "@angular/animations": "~11.2.11",
     "@angular/common": "~11.2.11",
     "@angular/compiler": "~11.2.11",
     "@angular/core": "~11.2.11",
     "@angular/forms": "~11.2.11",
+    "@angular/cli": "~11.2.10",
     "@angular/platform-browser": "~11.2.11",
     "@angular/platform-browser-dynamic": "~11.2.11",
     "@angular/router": "~11.2.11",
@@ -29,7 +36,6 @@
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "~0.1102.10",
-    "@angular/cli": "~11.2.10",
     "@angular/compiler-cli": "~11.2.11",
     "@types/jasmine": "~3.6.0",
     "@types/node": "^12.11.1",
